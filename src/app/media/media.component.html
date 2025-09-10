@@ -1,0 +1,31 @@
+  <div class="container ">
+      <h1 class="mb-4"> Media </h1>
+        <div class="mt-3 d-flex justify-content-between task-summary">
+
+  <div class="row justify-content-center mb-5 ">
+    <div class="col-12 col-md-8">
+
+      <!-- Video section -->
+      <div class="card shadow mb-4">
+        <div class="card-body p-2">
+          <video class="w-100 rounded" controls>
+            <source [src]="videoSrc" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- Audio section -->
+      <div class="card shadow">
+        <div class="card-body text-center">
+          <audio class="w-100" controls>
+            <source [src]="audioSrc" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+
+    </div>
+  </div>
+ </div>
+</div>

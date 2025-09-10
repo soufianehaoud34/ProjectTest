@@ -1,0 +1,103 @@
+<div class="container-fluid">   
+  <div class="row justify-content-center">     
+    <div class="col-12 col-md-8 col-lg-6">       
+      <div class="card shadow">         
+        <div class="card-header bg-primary text-white text-center">           
+          <h4 class="mb-0">📷 Camera & Gallery</h4>         
+        </div>         
+        <div class="card-body ">                      
+          <!-- Camera error message -->           
+          <div *ngIf="cameraError" class="alert alert-danger d-flex align-items-center" role="alert">             
+            <div class="flex-grow-1">               
+              <i class="bi bi-exclamation-triangle-fill me-2"></i>               
+              {{ cameraError }}             
+            </div>             
+            <button (click)="retryCamera()" class="btn btn-outline-danger btn-sm ms-2">               
+              <i class="bi bi-arrow-clockwise"></i> Retry             
+            </button>           
+          </div>            
+
+          <!-- Camera not available message -->           
+          <div *ngIf="!cameraAvailable && !cameraError" class="alert alert-info text-center" role="alert">             
+            <div class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></div>             
+            Checking camera permissions...           
+          </div>            
+
+<div class="webcam-container border rounded w-100 p-2 bg-light d-flex justify-content-center align-items-center position-relative">
+  <webcam     
+    *ngIf="webcamVisible"
+    [trigger]="triggerObservable()"                  
+    (imageCapture)="captureImage($event)"                 
+    (initError)="handleInitError($event)"
+    [videoOptions]="videoOptions"               
+    class="img-fluid rounded w-100">               
+  </webcam>
+
+  <!-- Custom floating button -->
+  <div class="camera-switch-custom position-absolute top-0 end-0 m-2" (click)="switchCamera()">
+     <i class="bi bi-arrow-repeat me-2"></i>
+  </div>
+</div>
+
+
+
+
+          <!-- Buttons -->           
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-4">             
+            <button                
+              (click)="takePhoto()"                
+              [disabled]="!cameraAvailable"               
+              class="btn btn-success btn-lg flex-fill flex-md-grow-0">               
+              <i class="bi bi-camera-fill me-2"></i>Capture Photo             
+            </button>
+            
+            <!-- Simple Camera Switch Button -->
+          <!--   <button 
+              (click)="switchCamera()" 
+              [disabled]="!cameraAvailable"
+              class="btn btn-info btn-lg flex-fill flex-md-grow-0">
+              <i class="bi bi-arrow-repeat me-2"></i>
+              {{ facingMode === 'user' ? 'Back Cam' : 'Front Cam' }}
+            </button> -->
+             
+            <button (click)="openGallery()" class="btn btn-success btn-lg flex-fill flex-md-grow-0">               
+              <i class="bi bi-images me-2"></i>Gallery             
+            </button>             
+            <button                
+              *ngIf="photo || webcamImage"                
+              (click)="clearPhoto()"               
+              class="btn btn-danger btn-lg flex-fill flex-md-grow-0">               
+              <i class="bi bi-trash-fill me-2"></i>Clear             
+            </button>           
+          </div>            
+
+          <!-- Hidden file input for gallery -->           
+          <input              
+            type="file"              
+            accept="image/*"              
+            #galleryInput              
+            style="display:none"              
+            (change)="onGallerySelected($event)" />            
+
+          <!-- Display captured or selected image -->           
+          <div *ngIf="photo || webcamImage" class="text-center">             
+            <div class="card">               
+              <div class="card-header bg-secondary text-white">                 
+                <small>                   
+                  <i class="bi bi-image-fill me-1"></i>                   
+                  {{ photo ? 'Gallery Photo' : 'Captured Photo' }}                 
+                </small>               
+              </div>               
+              <div class="card-body p-2">                 
+                <img                    
+                  [src]="photo ? photo : webcamImage?.imageAsDataUrl"                    
+                  alt="Photo"                    
+                  class="img-fluid rounded shadow-sm" />               
+              </div>             
+            </div>           
+          </div>          
+        </div>       
+      </div>     
+    </div>   
+  </div> 
+</div>

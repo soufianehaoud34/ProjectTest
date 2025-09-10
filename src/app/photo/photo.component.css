@@ -1,0 +1,146 @@
+/* Custom styles to complement Bootstrap */
+
+.webcam-container {
+  display: inline-block;
+  background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+  border: 2px solid #007bff !important;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+}
+
+.flex-grow-1{
+  color: red;
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+}
+webcam {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+.d-grid  {
+  margin-bottom: 0.5rem;
+  margin: 1rem;
+}
+
+/* Mobile responsiveness for webcam */
+@media (max-width: 768px) {
+  .webcam-container {
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    align-items: center;      /* center vertically */
+    width: 100%;              /* full width */
+    min-height: 250px;        /* ensures vertical centering space */
+    margin: 0 auto;
+  }
+
+  webcam {
+    width: 100%;
+    max-width: 400px;   /* keep it from being too big */
+    height: auto;
+    display: block;
+  }
+}
+
+/* Custom button hover effects */
+.btn:hover {
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Loading spinner animation */
+.spinner-border-sm {
+  animation: spin 1s linear infinite;
+}
+
+/* Custom shadow for captured images */
+.card img {
+  transition: transform 0.2s ease;
+}
+
+.card img:hover {
+  transform: scale(1.02);
+}
+
+/* Icon spacing adjustments */
+.bi {
+  font-size: 1.1em;
+}
+
+/* Alert improvements */
+.alert {
+  border: none;
+  border-radius: 10px;
+}
+
+/* Card improvements */
+.card {
+  border: none;
+  border-radius: 15px;
+}
+
+.card-header {
+  border-radius: 15px 15px 0 0 !important;
+  background-color: goldenrod !important;
+}
+
+/* Button group spacing on mobile */
+@media (max-width: 576px) {
+  .d-grid .btn {
+    margin-bottom: 0.5rem;
+
+  }
+
+
+}
+
+.camera-switch {
+  display: none !important;
+}
+.camera-switch-custom {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 70%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.camera-switch-custom i {
+  font-size: 1.5rem;
+  color: #007bff;
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .camera-switch-custom {
+    top: 5px;
+    right: 5px;
+    padding: 8px;
+  }
+  .camera-switch-custom i {
+    font-size: 1.2rem;
+    align-self: center;
+  }
+}
+
+
+
+.webcam-wrapper .camera-switch {
+  display: none !important;
+}
+
+
+
+
+.camera-switch-custom i {
+  font-size: 1.5rem;
+  color: #007bff;
+  align-self: center;
+}

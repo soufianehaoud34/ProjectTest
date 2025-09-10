@@ -1,0 +1,17 @@
+.media-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+
+  .video-section {
+    width: 100%;
+  }
+
+  .audio-section {
+    width: 100%;
+    text-align: center;
+  }
+}
