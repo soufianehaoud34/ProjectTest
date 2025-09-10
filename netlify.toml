@@ -1,0 +1,15 @@
+[build]
+  command = "ng build --configuration production"
+  publish = "dist/pwa-app/browser"
+
+[[plugins]]
+  package = "@netlify/angular-runtime"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Pour que le routing Angular fonctionne correctement
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

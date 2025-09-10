@@ -6,10 +6,11 @@ import { routes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideHttpClient } from '@angular/common/http';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }) ,provideHttpClient(), provideRouter(routes),provideAnimations(), provideServiceWorker('ngsw-worker.js', {
             enabled: true,
             registrationStrategy: 'registerWhenStable:30000'
-          })]
+          }), provideClientHydration(withEventReplay())]
 };
