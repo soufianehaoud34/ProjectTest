@@ -4,12 +4,3 @@
 
 [[plugins]]
   package = "@netlify/angular-runtime"
-
-[build.environment]
-  NODE_VERSION = "20"
-
-# Pour que le routing Angular fonctionne correctement
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
